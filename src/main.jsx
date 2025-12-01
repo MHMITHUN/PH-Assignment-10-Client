@@ -15,21 +15,27 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     <App />
                     <Toaster
                         position="top-right"
+                        reverseOrder={false}
+                        gutter={8}
                         toastOptions={{
-                            duration: 3000,
+                            // Define default duration
+                            duration: 2000,
                             style: {
                                 background: '#363636',
                                 color: '#fff',
+                                padding: '16px',
+                                borderRadius: '8px',
+                                zIndex: 99999,
                             },
                             success: {
-                                duration: 3000,
+                                duration: 2000,
                                 iconTheme: {
                                     primary: '#22c55e',
                                     secondary: '#fff',
                                 },
                             },
                             error: {
-                                duration: 4000,
+                                duration: 3000,
                                 iconTheme: {
                                     primary: '#ef4444',
                                     secondary: '#fff',

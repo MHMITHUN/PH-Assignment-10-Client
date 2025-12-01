@@ -45,3 +45,39 @@
 .slick-next:before {
   @apply text-primary-600 !important;
 }
+
+/* React Hot Toast - Force clickable close buttons */
+.go3958317564 {
+  pointer-events: auto !important;
+}
+
+div[role="status"],
+div[role="alert"] {
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+}
+
+/* Target the close button specifically */
+div[role="status"] button,
+div[role="alert"] button,
+.go3958317564 button {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+/* Ensure the container doesn't block clicks */
+body>div>div[style*="position: fixed"] {
+  pointer-events: none;
+}
+
+body>div>div[style*="position: fixed"]>div {
+  pointer-events: auto;
+}
+
+/* SweetAlert2 z-index fix */
+.swal2-container {
+  z-index: 100000 !important;
+}
