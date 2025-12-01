@@ -1,84 +1,258 @@
-# 🌱 Gardening Community Hub - Client
+# 🌱 Gardening Hub - Client
 
-A modern, responsive React application for connecting gardening enthusiasts worldwide.
+A modern, responsive web application for gardening enthusiasts to share tips, connect with expert gardeners, and explore gardening knowledge.
 
-## 🚀 Live Site URL
-[Coming Soon - Deploy to Netlify]
+![Gardening Hub Homepage](https://i.postimg.cc/43dpR2P5/screencapture-localhost-3001-2025-12-02-03-30-09.png)
 
-## ✨ Key Features
+![Browse Tips](https://i.postimg.cc/DwCb6dhc/screencapture-localhost-3001-browse-tips-2025-12-02-03-31-25.png)
 
-- **🔐 Authentication System**: Secure email/password and Google authentication with Firebase
-- **🌓 Dark/Light Theme Toggle**: Seamless theme switching with localStorage persistence
-- **🌿 Browse & Share Tips**: Community-driven gardening tips with filtering by difficulty level
-- **❤️ Like System**: Interactive like functionality for favorite tips
-- **📝 Full CRUD Operations**: Create, read, update, and delete your own gardening tips
-- **👥 Explore Gardeners**: Connect with active community members and view their profiles
-- **📱 Fully Responsive**: Optimized for mobile, tablet, and desktop devices
-- **✨ Smooth Animations**: Engaging UI with Lottie, typewriter effects, and reveal animations
-- **🎨 Modern Design**: Beautiful gradient backgrounds, cards, and Tailwind CSS styling
-- **🔒 Private Routes**: Protected pages that require authentication with state preservation
+## 🚀 Live Demo
 
-## 📖 Project Description
+- **Live Site:** [https://ph-assignment-10-garden.netlify.app](https://ph-assignment-10-garden.netlify.app)
+- **Server Repository:** [GitHub - PH-Assignment-10-Server](https://github.com/MHMITHUN/PH-Assignment-10-Server)
 
-GardenHub is a comprehensive platform designed for gardening enthusiasts to share their knowledge, discover new techniques, and connect with fellow gardeners. The application features a modern, intuitive interface with dark mode support, allowing users to create and manage gardening tips, explore active community members, and engage with content through likes and comments.
+## ✨ Features
 
-Built with React and Firebase, the platform emphasizes user experience through smooth animations, responsive design, and efficient state management. Whether you're a beginner or an experienced gardener, GardenHub provides the perfect space to grow your knowledge and community.
+### 🔐 Authentication
+- Email/Password authentication
+- Google Sign-In integration
+- Protected routes for authenticated users
+- User profile management
+- reCAPTCHA v2 bot protection
 
-## 🛠️ Technologies Used
+### 📝 Gardening Tips Management
+- **Browse Tips** - View all public gardening tips
+- **Share Tips** - Create and publish your own tips (requires login)
+- **My Tips** - Manage your personal tips (edit, delete, toggle privacy)
+- **Trending Tips** - See the most liked tips
+- **Filter by Difficulty** - Easy, Medium, Hard levels
 
-- **React 18** - Modern UI library
-- **Vite** - Fast build tool
-- **React Router v6** - Client-side routing
-- **Firebase Authentication** - User authentication
-- **Axios** - HTTP client
-- **Tailwind CSS** - Utility-first CSS framework
-- **React Slick** - Carousel/slider component
-- **React Hot Toast** - Toast notifications
-- **SweetAlert2** - Beautiful alerts
-- **Lottie React** - Animated icons
-- **React Simple Typewriter** - Typewriter effect
-- **React Awesome Reveal** - Scroll animations
-- **React Tooltip** - Interactive tooltips
+### 👥 Gardener Community
+- **Explore Gardeners** - Browse profiles of expert gardeners
+- **Featured Gardeners** - Highlighted active community members
+- **Detailed Profiles** - View gardener experience, bio, and contributions
+
+### 🎨 User Experience
+- **Dark/Light Mode** - Persistent theme toggle
+- **Responsive Design** - Mobile, tablet, and desktop optimized
+- **Modern UI** - Gradient backgrounds, smooth animations
+- **Interactive Elements** - Hover effects, micro-animations
+- **Toast Notifications** - User-friendly feedback messages
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework:** React 18
+- **Build Tool:** Vite
+- **Routing:** React Router DOM v6
+- **Styling:** Tailwind CSS + Custom CSS
+- **Authentication:** Firebase Auth
+- **HTTP Client:** Axios
+- **UI Components:**
+  - React Icons
+  - React Hot Toast
+  - React Google reCAPTCHA
+  - React Slick (carousel)
+  - SweetAlert2
 
 ## 📦 Installation
 
-\`\`\`bash
-# Install dependencies
-npm install
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+- Firebase project
+- Google reCAPTCHA site key
 
-# Start development server
-npm run dev
+### Setup Steps
 
-# Build for production
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/MHMITHUN/PH-Assignment-10-Client.git
+   cd PH-Assignment-10-Client
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_FIREBASE_API_KEY=your_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   VITE_API_URL=http://localhost:5000
+   VITE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+   ```
+
+   **Get Firebase config:**
+   - Go to [Firebase Console](https://console.firebase.google.com)
+   - Create a new project or use existing
+   - Enable Email/Password and Google authentication
+   - Copy config values to `.env`
+
+   **Get reCAPTCHA key:**
+   - Go to [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin)
+   - Create reCAPTCHA v2 (checkbox)
+   - Copy site key to `.env`
+
+4. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:3000`
+
+## 🏗️ Build for Production
+
+```bash
 npm run build
-\`\`\`
+```
 
-## 🔧 Environment Variables
+The production-ready files will be in the `dist` folder.
 
-Create a \`.env\` file in the root directory:
+## 🌐 Deployment (Netlify)
 
-\`\`\`env
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
-VITE_API_URL=http://localhost:5000
-\`\`\`
+### Automatic Deployment
 
-## 📱 Pages Overview
+1. **Connect to Netlify**
+   - Push code to GitHub
+   - Import repository in Netlify
+   - Netlify auto-detects Vite configuration
 
-- **Home** - Hero slider, featured gardeners, trending tips, stats
-- **Browse Tips** - Filterable table of all public tips
-- **Explore Gardeners** - Community member profiles
-- **Share Tip** (Private) - Form to create new tips
-- **My Tips** (Private) - Manage your own tips
-- **Update Tip** (Private) - Edit existing tips
-- **Tip Details** (Private) - Full tip information with like button
-- **Login/Register** - Authentication pages
+2. **Configure Build Settings**
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+
+3. **Add Environment Variables**
+   - Go to Site settings → Environment variables
+   - Add all `VITE_*` variables from your `.env` file
+   - **Important:** Set `VITE_API_URL` to your deployed server URL
+
+4. **Deploy**
+   - Trigger deploy
+   - Your site will be live!
+
+### Manual Deployment
+
+```bash
+npm run build
+netlify deploy --prod --dir=dist
+```
+
+## 📁 Project Structure
+
+```
+client/
+├── public/
+│   ├── _redirects          # Netlify SPA routing
+│   └── ...
+├── src/
+│   ├── components/         # Reusable components
+│   │   ├── Footer.jsx
+│   │   ├── Navbar.jsx
+│   │   └── ...
+│   ├── contexts/          # React Context providers
+│   │   ├── AuthContext.jsx
+│   │   └── ThemeContext.jsx
+│   ├── pages/             # Page components
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── BrowseTips.jsx
+│   │   ├── ShareTip.jsx
+│   │   ├── MyTips.jsx
+│   │   └── ...
+│   ├── config/            # Configuration files
+│   │   └── firebase.config.js
+│   ├── utils/             # Utility functions
+│   │   └── toast.js
+│   ├── App.jsx            # Main app component
+│   ├── main.jsx           # Entry point
+│   └── index.css          # Global styles
+├── .env                   # Environment variables (gitignored)
+├── .env.example           # Example environment file
+├── netlify.toml           # Netlify configuration
+├── vite.config.js         # Vite configuration
+└── package.json
+```
+
+## 🔒 Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `VITE_FIREBASE_API_KEY` | Firebase API key | ✅ |
+| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | ✅ |
+| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | ✅ |
+| `VITE_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket | ✅ |
+| `VITE_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID | ✅ |
+| `VITE_FIREBASE_APP_ID` | Firebase app ID | ✅ |
+| `VITE_API_URL` | Backend API URL | ✅ |
+| `VITE_RECAPTCHA_SITE_KEY` | Google reCAPTCHA v2 site key | ✅ |
+
+## 🧪 Testing Locally
+
+1. Ensure backend server is running on `http://localhost:5000`
+2. Start the client with `npm run dev`
+3. Open `http://localhost:3000` in your browser
+
+### Test Features:
+- ✅ Register a new account
+- ✅ Login with email/password or Google
+- ✅ Browse public tips
+- ✅ Share a new tip (requires login)
+- ✅ Edit/delete your tips
+- ✅ Toggle dark/light mode
+- ✅ View gardener profiles
+
+## 📝 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+
+## 🎨 Features Showcase
+
+### Authentication
+- Secure Firebase authentication
+- Google OAuth integration
+- reCAPTCHA bot protection
+
+### Gardening Tips
+- Create, read, update, delete (CRUD)
+- Public/Private visibility toggle
+- Difficulty level filtering
+- Like/trending system
+
+### UI/UX
+- Responsive design (mobile-first)
+- Dark mode support
+- Smooth animations
+- Toast notifications
+- Modern gradients
+
+## 🤝 Contributing
+
+This is an academic assignment project. Not open for contributions.
+
+## 📄 License
+
+This project is for educational purposes.
 
 ## 👨‍💻 Author
 
-Built with 💚 for gardening enthusiasts everywhere
+**MD Mahamudul Hasan**
+- GitHub: [@MHMITHUN](https://github.com/MHMITHUN)
+
+## 🙏 Acknowledgments
+
+- Programming Hero Assignment 10
+- Firebase for authentication
+- Vite for build tooling
+- Tailwind CSS for styling
