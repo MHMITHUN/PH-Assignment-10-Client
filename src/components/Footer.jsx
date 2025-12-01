@@ -50,15 +50,15 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="flex items-start space-x-3 text-gray-600 dark:text-gray-400">
                                 <FaMapMarkerAlt className="mt-1 text-primary-600 dark:text-primary-400 flex-shrink-0" />
-                                <span className="text-sm">123 Garden Street, Green City, GC 12345</span>
+                                <span className="text-sm">Mirpur 6 ,Dhaka, Bangladesh</span>
                             </li>
                             <li className="flex items-center space-x-3 text-gray-600 dark:text-gray-400">
                                 <FaPhone className="text-primary-600 dark:text-primary-400 flex-shrink-0" />
-                                <span className="text-sm">+1 (555) 123-4567</span>
+                                <span className="text-sm">+8801560027539</span>
                             </li>
                             <li className="flex items-center space-x-3 text-gray-600 dark:text-gray-400">
                                 <FaEnvelope className="text-primary-600 dark:text-primary-400 flex-shrink-0" />
-                                <span className="text-sm">hello@gardenhub.com</span>
+                                <span className="text-sm">mhmmithun1@gmail.com</span>
                             </li>
                         </ul>
                     </div>
@@ -115,7 +115,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
-                        © {new Date().getFullYear()} GardenHub. All rights reserved. Built with 💚 for gardening enthusiasts.
+                        © {new Date().getFullYear()} GardenHub. All rights reserved. Built with 💚 for gardening enthusiasts by Md.Mahamudul Hasan.
                     </p>
                 </div>
             </div>

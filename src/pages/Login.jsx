@@ -1,27 +1,41 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { FaGoogle, FaEnvelope, FaLock } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const recaptchaRef = useRef(null);
     const { login, googleLogin } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+    const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Verify reCAPTCHA
+        const recaptchaValue = recaptchaRef.current?.getValue();
+        if (!recaptchaValue) {
+            toast.error('Please complete the reCAPTCHA verification');
+            return;
+        }
+
         setLoading(true);
 
         try {
             await login(email, password);
             toast.success('Login successful!');
             navigate(from, { replace: true });
+
+            // Reset reCAPTCHA
+            recaptchaRef.current?.reset();
         } catch (error) {
             console.error(error);
             if (error.code === 'auth/user-not-found') {
@@ -33,12 +47,22 @@ const Login = () => {
             } else {
                 toast.error('Login failed. Please try again.');
             }
+
+            // Reset reCAPTCHA on error
+            recaptchaRef.current?.reset();
         } finally {
             setLoading(false);
         }
     };
 
     const handleGoogleLogin = async () => {
+        // Verify reCAPTCHA for Google login too
+        const recaptchaValue = recaptchaRef.current?.getValue();
+        if (!recaptchaValue) {
+            toast.error('Please complete the reCAPTCHA verification');
+            return;
+        }
+
         try {
             await googleLogin();
             toast.success('Login successful!');
@@ -46,6 +70,7 @@ const Login = () => {
         } catch (error) {
             console.error(error);
             toast.error('Google login failed. Please try again.');
+            recaptchaRef.current?.reset();
         }
     };
 
@@ -98,6 +123,17 @@ const Login = () => {
                                 />
                             </div>
                         </div>
+
+                        {/* reCAPTCHA v2 - Visible Checkbox */}
+                        {siteKey && (
+                            <div className="flex justify-center">
+                                <ReCAPTCHA
+                                    ref={recaptchaRef}
+                                    sitekey={siteKey}
+                                    theme="light"
+                                />
+                            </div>
+                        )}
 
                         <button
                             type="submit"
